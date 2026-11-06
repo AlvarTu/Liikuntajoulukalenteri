@@ -20,7 +20,10 @@ h1 {
 .kalenteri {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: 40px;
+
+    column-gap: 40px;  /* väli sivusuunnassa */
+    row-gap: 80px;     /* väli ylös-alas */
+
     max-width: 1000px;
     margin: 30px auto;
     justify-items: center;
@@ -59,7 +62,7 @@ summary {
 }
 
 details[open] summary {
-    transform: rotateY(80deg);
+    transform: rotateY(120deg);
 }
 
 summary::-webkit-details-marker {
