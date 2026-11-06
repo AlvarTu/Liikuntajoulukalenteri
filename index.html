@@ -5,10 +5,72 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Liikuntajoulukalenteri</title>
 
+<style>
+
+body {
+    background: linear-gradient(to bottom, #8B0000, #B71C1C);
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+h1 {
+    color: gold;
+    font-size: 3rem;
+    text-shadow:
+        0 0 10px gold,
+        0 0 20px gold,
+        0 0 30px orange;
+}
+
+.ohje {
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+}
+
+.lumisade {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.hiutale {
+    position: absolute;
+    top: -50px;
+    color: white;
+    opacity: 0.7;
+    animation: sataa linear infinite;
+}
+
+.hiutale:nth-child(1){left:5%;font-size:18px;animation-duration:8s;}
+.hiutale:nth-child(2){left:15%;font-size:30px;animation-duration:10s;}
+.hiutale:nth-child(3){left:25%;font-size:22px;animation-duration:7s;}
+.hiutale:nth-child(4){left:35%;font-size:25px;animation-duration:12s;}
+.hiutale:nth-child(5){left:45%;font-size:20px;animation-duration:9s;}
+.hiutale:nth-child(6){left:55%;font-size:28px;animation-duration:11s;}
+.hiutale:nth-child(7){left:65%;font-size:18px;animation-duration:8s;}
+.hiutale:nth-child(8){left:75%;font-size:32px;animation-duration:13s;}
+.hiutale:nth-child(9){left:85%;font-size:24px;animation-duration:9s;}
+.hiutale:nth-child(10){left:95%;font-size:20px;animation-duration:10s;}
+
+@keyframes sataa {
+    from {
+        transform: translateY(-50px) rotate(0deg);
+    }
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+
 #etusivu {
     position: relative;
     z-index: 1;
-    margin-top: 100px;
+    margin-top: 120px;
 }
 
 .valintanappi {
@@ -44,82 +106,15 @@
     cursor: pointer;
     margin-bottom: 30px;
 }
-    
-<style>
-
-body {
-    background: linear-gradient(to bottom, #8B0000, #B71C1C);
-    color: white;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 20px;
-    overflow-x: hidden;
-}
-
-h1 {
-    color: gold;
-    font-size: 3rem;
-    text-shadow:
-        0 0 10px gold,
-        0 0 20px gold,
-        0 0 30px orange;
-    margin-bottom: 20px;
-}
-
-.ohje {
-    font-size: 1.1rem;
-    margin-bottom: 70px;
-}
-
-.lumisade {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 0;
-}
-
-.hiutale {
-    position: absolute;
-    top: -50px;
-    color: white;
-    opacity: 0.7;
-    animation: sataa linear infinite;
-}
-
-.hiutale:nth-child(1) { left: 5%; font-size: 18px; animation-duration: 8s; }
-.hiutale:nth-child(2) { left: 15%; font-size: 30px; animation-duration: 10s; }
-.hiutale:nth-child(3) { left: 25%; font-size: 22px; animation-duration: 7s; }
-.hiutale:nth-child(4) { left: 35%; font-size: 25px; animation-duration: 12s; }
-.hiutale:nth-child(5) { left: 45%; font-size: 20px; animation-duration: 9s; }
-.hiutale:nth-child(6) { left: 55%; font-size: 28px; animation-duration: 11s; }
-.hiutale:nth-child(7) { left: 65%; font-size: 18px; animation-duration: 8s; }
-.hiutale:nth-child(8) { left: 75%; font-size: 32px; animation-duration: 13s; }
-.hiutale:nth-child(9) { left: 85%; font-size: 24px; animation-duration: 9s; }
-.hiutale:nth-child(10) { left: 95%; font-size: 20px; animation-duration: 10s; }
-
-@keyframes sataa {
-    from {
-        transform: translateY(-50px) rotate(0deg);
-    }
-    to {
-        transform: translateY(110vh) rotate(360deg);
-    }
-}
 
 .kalenteri {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-
     column-gap: 40px;
     row-gap: 100px;
-
     max-width: 1000px;
-    margin: 0 auto;
-
+    margin: 50px auto;
     justify-items: center;
-
     position: relative;
     z-index: 1;
 }
@@ -134,38 +129,29 @@ details {
 summary {
     width: 100%;
     height: 100%;
-
     background: white;
     color: darkred;
-
     font-size: 32px;
     font-weight: bold;
-
     border: 3px solid gold;
     border-radius: 20px;
-
     cursor: pointer;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     list-style: none;
-
     transform-origin: right center;
-    transition: transform 0.8s ease, transform 0.3s ease;
-
+    transition: transform 0.8s ease;
     box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-
     box-sizing: border-box;
-}
-
-summary:hover {
-    transform: scale(1.05);
 }
 
 summary::-webkit-details-marker {
     display: none;
+}
+
+summary:hover {
+    transform: scale(1.05);
 }
 
 details[open] summary {
@@ -176,28 +162,20 @@ details p {
     position: absolute;
     top: 0;
     left: 0;
-
     width: 110px;
     height: 110px;
-
     margin: 0;
     padding: 10px;
-
     box-sizing: border-box;
-
     background: #fff8dc;
     border: 3px solid gold;
     border-radius: 20px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     text-align: center;
-
     color: black;
     font-size: 14px;
-
     z-index: -1;
 }
 
@@ -225,103 +203,88 @@ details[open] p {
 
 <div id="etusivu">
 
-<h1>🎄 Liikuntajoulukalenteri 🎄</h1>
+    <h1>🎄 Liikuntajoulukalenteri 🎄</h1>
 
-<p class="ohje">Valitse kalenteri</p>
+    <p class="ohje">Valitse kalenteri</p>
 
-<button class="valintanappi"
-onclick="naytaKalenteri('lasten')">
-🎅 Lastenkalenteri
-</button>
+    <button class="valintanappi" onclick="naytaKalenteri('lastenkalenteri')">
+        🎅 Lastenkalenteri
+    </button>
 
-<button class="valintanappi"
-onclick="naytaKalenteri('nuorten')">
-💪 Nuorten kalenteri
-</button>
+    <button class="valintanappi" onclick="naytaKalenteri('nuortenkalenteri')">
+        💪 Nuorten kalenteri
+    </button>
 
 </div>
 
 <div id="lastenkalenteri">
 
-<button class="paluu"
-onclick="palaaEtusivulle()">
-← Takaisin
-</button>
+    <button class="paluu" onclick="palaaEtusivulle()">
+        ← Takaisin
+    </button>
 
-<h1>🎄 Lastenkalenteri 🎄</h1>
+    <h1>🎄 Lastenkalenteri 🎄</h1>
 
-<p class="ohje">Avaa päivän luukku ja suorita liikuntahaaste!</p>
+    <p class="ohje">Avaa päivän luukku ja suorita liikuntahaaste!</p>
 
-<div class="kalenteri">
+    <div class="kalenteri">
 
-<details><summary>17</summary><p>10 vatsalihasliikettä</p></details>
-<details><summary>4</summary><p>Karhukävely 1 minuuttia</p></details>
-<details><summary>22</summary><p>15 x-hyppyä</p></details>
-<details><summary>1</summary><p>100 tasahyppyä</p></details>
-<details><summary>13</summary><p>Kävele takaperin turvallisesti</p></details>
-<details><summary>8</summary><p>Seiso yhdellä jalalla 1 minuutti</p></details>
+        <details><summary>17</summary><p>10 vatsalihasliikettä</p></details>
+        <details><summary>4</summary><p>Karhukävely 1 minuuttia</p></details>
+        <details><summary>22</summary><p>15 x-hyppyä</p></details>
+        <details><summary>1</summary><p>100 tasahyppyä</p></details>
+        <details><summary>13</summary><p>Kävele takaperin turvallisesti</p></details>
+        <details><summary>8</summary><p>Seiso yhdellä jalalla 1 minuutti</p></details>
 
-<details><summary>24</summary><p>Jouluaaton superhaaste: valitse 3 suosikkihaastettasi ja tee ne!</p></details>
-<details><summary>6</summary><p>Tanssi lempikappaleesi ajan</p></details>
-<details><summary>10</summary><p>10 sammakkohyppyä</p></details>
-<details><summary>19</summary><p>Tee oma tanssiliike</p></details>
-<details><summary>3</summary><p>15 kyykkyä</p></details>
-<details><summary>21</summary><p>Karhunkävely huoneen poikki</p></details>
+        <details><summary>24</summary><p>Jouluaaton superhaaste: valitse 3 suosikkihaastettasi ja tee ne!</p></details>
+        <details><summary>6</summary><p>Tanssi lempikappaleesi ajan</p></details>
+        <details><summary>10</summary><p>10 sammakkohyppyä</p></details>
+        <details><summary>19</summary><p>Tee oma tanssiliike</p></details>
+        <details><summary>3</summary><p>15 kyykkyä</p></details>
+        <details><summary>21</summary><p>Karhunkävely huoneen poikki</p></details>
 
-<details><summary>15</summary><p>Tee lumienkeliä 30 sekuntia</p></details>
-<details><summary>2</summary><p>Juokse paikallasi 1 minuutti</p></details>
-<details><summary>12</summary><p>Heitä ja ota pallo kiinni 20 kertaa</p></details>
-<details><summary>23</summary><p>Liiku kuin joulupukki 1 minuutti</p></details>
-<details><summary>7</summary><p>10 punnerrusta seinää vasten</p></details>
-<details><summary>18</summary><p>Hyppää narua 1 minuutti</p></details>
+        <details><summary>15</summary><p>Tee lumienkeliä 30 sekuntia</p></details>
+        <details><summary>2</summary><p>Juokse paikallasi 1 minuutti</p></details>
+        <details><summary>12</summary><p>Heitä ja ota pallo kiinni 20 kertaa</p></details>
+        <details><summary>23</summary><p>Liiku kuin joulupukki 1 minuutti</p></details>
+        <details><summary>7</summary><p>10 punnerrusta seinää vasten</p></details>
+        <details><summary>18</summary><p>Hyppää narua 1 minuutti</p></details>
 
-<details><summary>5</summary><p>20 haarahyppyä</p></details>
-<details><summary>14</summary><p>20 askelkyykkyä</p></details>
-<details><summary>11</summary><p>Venyttele 2 minuuttia</p></details>
-<details><summary>20</summary><p>20 varvaskosketusta</p></details>
-<details><summary>9</summary><p>Juokse portaat ylös ja alas</p></details>
-<details><summary>16</summary><p>Hölkkää paikallasi 2 minuuttia</p></details>
+        <details><summary>5</summary><p>20 haarahyppyä</p></details>
+        <details><summary>14</summary><p>20 askelkyykkyä</p></details>
+        <details><summary>11</summary><p>Venyttele 2 minuuttia</p></details>
+        <details><summary>20</summary><p>20 varvaskosketusta</p></details>
+        <details><summary>9</summary><p>Juokse portaat ylös ja alas</p></details>
+        <details><summary>16</summary><p>Hölkkää paikallasi 2 minuuttia</p></details>
 
-</div>
+    </div>
 
 </div>
 
 <div id="nuortenkalenteri">
 
-<button class="paluu"
-onclick="palaaEtusivulle()">
-← Takaisin
-</button>
+    <button class="paluu" onclick="palaaEtusivulle()">
+        ← Takaisin
+    </button>
 
-<h1>💪 Nuorten kalenteri 💪</h1>
+    <h1>💪 Nuorten kalenteri 💪</h1>
 
-<p class="ohje">
-Nuorten liikuntahaasteet lisätään myöhemmin.
-</p>
+    <p class="ohje">
+        Nuorten liikuntahaasteet lisätään myöhemmin.
+    </p>
 
 </div>
 
 <script>
 
-function naytaKalenteri(tyyppi) {
-
+function naytaKalenteri(id) {
     document.getElementById("etusivu").style.display = "none";
-
-    if (tyyppi === "lasten") {
-        document.getElementById("lastenkalenteri").style.display = "block";
-    }
-
-    if (tyyppi === "nuorten") {
-        document.getElementById("nuortenkalenteri").style.display = "block";
-    }
+    document.getElementById(id).style.display = "block";
 }
 
 function palaaEtusivulle() {
-
     document.getElementById("etusivu").style.display = "block";
-
     document.getElementById("lastenkalenteri").style.display = "none";
-
     document.getElementById("nuortenkalenteri").style.display = "none";
 }
 
