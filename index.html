@@ -6,15 +6,39 @@
 <title>Liikuntajoulukalenteri</title>
 
 <style>
+
 body {
-    background-color: #B71C1C;
+    background: linear-gradient(to bottom, #8B0000, #B71C1C);
     color: white;
     font-family: Arial, sans-serif;
     text-align: center;
+    margin: 0;
+    padding: 20px;
 }
 
 h1 {
     color: gold;
+    font-size: 3rem;
+    text-shadow:
+        0 0 10px gold,
+        0 0 20px gold,
+        0 0 30px orange;
+    margin-bottom: 20px;
+}
+
+p.ohje {
+    font-size: 1.1rem;
+    margin-bottom: 60px;
+}
+
+.lumi {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    font-size: 24px;
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: 0;
 }
 
 .kalenteri {
@@ -22,18 +46,21 @@ h1 {
     grid-template-columns: repeat(6, 1fr);
 
     column-gap: 40px;
-    row-gap: 80px;
+    row-gap: 100px;
 
     max-width: 1000px;
-    margin: 80px auto 30px auto;
+    margin: 0 auto;
 
     justify-items: center;
+    position: relative;
+    z-index: 1;
 }
 
 details {
     width: 110px;
     height: 110px;
     perspective: 1000px;
+    position: relative;
 }
 
 summary {
@@ -47,7 +74,9 @@ summary {
     font-size: 32px;
     font-weight: bold;
 
-    border-radius: 15px;
+    border: 3px solid gold;
+    border-radius: 20px;
+
     cursor: pointer;
 
     display: flex;
@@ -57,17 +86,23 @@ summary {
     list-style: none;
 
     transform-origin: right center;
-    transition: transform 0.8s ease;
+    transition:
+        transform 0.8s ease,
+        scale 0.3s ease;
 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
 
-details[open] summary {
-    transform: rotateY(110deg);
+summary:hover {
+    scale: 1.05;
 }
 
 summary::-webkit-details-marker {
     display: none;
+}
+
+details[open] summary {
+    transform: rotateY(110deg);
 }
 
 details p {
@@ -80,10 +115,12 @@ details p {
 
     margin: 0;
     padding: 10px;
+
     box-sizing: border-box;
 
     background: #fff8dc;
-    border-radius: 15px;
+    border: 3px solid gold;
+    border-radius: 20px;
 
     display: flex;
     justify-content: center;
@@ -95,13 +132,34 @@ details p {
 
     z-index: -1;
 }
+
+details[open] p {
+    box-shadow: 0 0 20px rgba(255,255,255,0.8);
+}
+
+details:nth-child(3n) summary {
+    background: #ffffff;
+}
+
+details:nth-child(3n+1) summary {
+    background: #f5f5f5;
+}
+
+details:nth-child(3n+2) summary {
+    background: #fff8dc;
+}
+
 </style>
 </head>
 
 <body>
 
+<div class="lumi">
+❄️ ❄️ ❄️ ❄️ ❄️ ❄️ ❄️ ❄️ ❄️ ❄️
+</div>
+
 <h1>🎄 Liikuntajoulukalenteri 🎄</h1>
-<p>Avaa päivän luukku ja suorita liikuntahaaste!</p>
+<p class="ohje">Avaa päivän luukku ja suorita liikuntahaaste!</p>
 
 <div class="kalenteri">
 
