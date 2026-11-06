@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Liikuntajoulukalenteri</title>
 
-
 <style>
 body {
     background-color: #B71C1C;
@@ -14,84 +13,42 @@ body {
     text-align: center;
 }
 
-
 h1 {
     color: gold;
 }
 
-
 .kalenteri {
-    position: relative;
-    width: 1100px;
-    height: 1350px;
-    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+    max-width: 850px;
+    margin: 30px auto;
+    justify-items: center;
 }
 
 details {
-    position: absolute;
-    width: 140px;
-    height: 140px;
+    width: 110px;
+    height: 110px;
     perspective: 1000px;
-    background: transparent;
 }
-
-
-details:nth-child(1)  { top: 20px;  left: 50px; }
-details:nth-child(2)  { top: 50px;  left: 350px; }
-details:nth-child(3)  { top: 30px;  left: 700px; }
-details:nth-child(4)  { top: 180px; left: 180px; }
-details:nth-child(5)  { top: 200px; left: 550px; }
-details:nth-child(6)  { top: 180px; left: 820px; }
-
-details:nth-child(7)  { top: 350px; left: 40px; }
-details:nth-child(8)  { top: 380px; left: 320px; }
-details:nth-child(9)  { top: 340px; left: 650px; }
-details:nth-child(10) { top: 360px; left: 900px; }
-
-details:nth-child(11) { top: 520px; left: 180px; }
-details:nth-child(12) { top: 520px; left: 500px; }
-details:nth-child(13) { top: 520px; left: 800px; }
-
-details:nth-child(14) { top: 680px; left: 60px; }
-details:nth-child(15) { top: 700px; left: 350px; }
-details:nth-child(16) { top: 680px; left: 650px; }
-details:nth-child(17) { top: 690px; left: 920px; }
-
-details:nth-child(18) { top: 850px; left: 180px; }
-details:nth-child(19) { top: 860px; left: 500px; }
-details:nth-child(20) { top: 860px; left: 820px; }
-
-details:nth-child(21) { top: 1020px; left: 70px; }
-details:nth-child(22) { top: 1020px; left: 380px; }
-details:nth-child(23) { top: 1040px; left: 700px; }
-details:nth-child(24) { top: 1180px; left: 450px; }
-
-details {
-    position: absolute;
-    width: 140px;
-    height: 140px;
-    perspective: 1000px;
-    background: transparent;
-    color: black;
-    border-radius: 15px;
-    padding: 0;
-}
-
 
 summary {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
+
     background-color: white;
     color: darkred;
-    font-size: 40px;
+
+    font-size: 32px;
     font-weight: bold;
+
     border-radius: 15px;
     cursor: pointer;
 
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 
     list-style: none;
 
@@ -101,7 +58,7 @@ summary {
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-    details[open] summary {
+details[open] summary {
     transform: rotateY(110deg);
 }
 
@@ -114,11 +71,11 @@ details p {
     top: 0;
     left: 0;
 
-    width: 140px;
-    height: 140px;
+    width: 110px;
+    height: 110px;
 
     margin: 0;
-    padding: 15px;
+    padding: 10px;
     box-sizing: border-box;
 
     background: #fff8dc;
@@ -129,32 +86,18 @@ details p {
     align-items: center;
 
     text-align: center;
-    font-size: 18px;
+    font-size: 14px;
+    color: black;
 
     z-index: -1;
-}
-
-
-@keyframes aukea {
-    from {
-        opacity: 0;
-        transform: translateY(-15px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 </style>
 </head>
 
-
 <body>
-
 
 <h1>🎄 Liikuntajoulukalenteri 🎄</h1>
 <p>Avaa päivän luukku ja suorita liikuntahaaste!</p>
-
 
 <div class="kalenteri">
 
@@ -162,12 +105,11 @@ details p {
 <details><summary>4</summary><p>Karhukävely 1 minuuttia</p></details>
 <details><summary>22</summary><p>15 x-hyppyä</p></details>
 <details><summary>1</summary><p>100 tasahyppyä</p></details>
-
 <details><summary>13</summary><p>Kävele takaperin turvallisesti</p></details>
 <details><summary>8</summary><p>Seiso yhdellä jalalla 1 minuutti</p></details>
+
 <details><summary>24</summary><p>Jouluaaton superhaaste: valitse 3 suosikkihaastettasi ja tee ne!</p></details>
 <details><summary>6</summary><p>Tanssi lempikappaleesi ajan</p></details>
-
 <details><summary>10</summary><p>10 sammakkohyppyä</p></details>
 <details><summary>19</summary><p>Tee oma tanssiliike</p></details>
 <details><summary>3</summary><p>15 kyykkyä</p></details>
@@ -177,12 +119,11 @@ details p {
 <details><summary>2</summary><p>Juokse paikallasi 1 minuutti</p></details>
 <details><summary>12</summary><p>Heitä ja ota pallo kiinni 20 kertaa</p></details>
 <details><summary>23</summary><p>Liiku kuin joulupukki 1 minuutti</p></details>
-
 <details><summary>7</summary><p>10 punnerrusta seinää vasten</p></details>
 <details><summary>18</summary><p>Hyppää narua 1 minuutti</p></details>
+
 <details><summary>5</summary><p>20 haarahyppyä</p></details>
 <details><summary>14</summary><p>20 askelkyykkyä</p></details>
-
 <details><summary>11</summary><p>Venyttele 2 minuuttia</p></details>
 <details><summary>20</summary><p>20 varvaskosketusta</p></details>
 <details><summary>9</summary><p>Juokse portaat ylös ja alas</p></details>
