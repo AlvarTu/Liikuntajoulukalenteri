@@ -29,24 +29,13 @@ h1 {
 
 details {
     position: absolute;
-    background-color: white;
-    color: black;
-    border-radius: 15px;
-    padding: 20px;
     width: 140px;
-    min-height: 100px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    transition: transform 0.4s ease, background-color 0.4s ease;
+    height: 140px;
+    perspective: 1000px;
+    background: transparent;
 }
 
-details:hover {
-    transform: scale(1.08);
-}
 
-details[open] {
-    background-color: #fff8dc;
-    transform: scale(1.15);
-}
 }
 details:nth-child(1)  { top: 20px;  left: 50px; }
 details:nth-child(2)  { top: 50px;  left: 350px; }
@@ -87,10 +76,29 @@ details {
 
 
 summary {
-    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    color: darkred;
     font-size: 40px;
     font-weight: bold;
-    color: darkred;
+    border-radius: 15px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    list-style: none;
+
+    transform-origin: left center;
+    transition: transform 0.8s ease;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+    details[open] summary {
+    transform: rotateY(-110deg);
 }
 
 summary::-webkit-details-marker {
@@ -98,9 +106,30 @@ summary::-webkit-details-marker {
 }
 
 details p {
-    animation: aukea 0.5s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 140px;
+    height: 140px;
+
+    margin: 0;
+    padding: 15px;
+    box-sizing: border-box;
+
+    background: #fff8dc;
+    border-radius: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
     font-size: 18px;
+
+    z-index: -1;
 }
+
 
 @keyframes aukea {
     from {
