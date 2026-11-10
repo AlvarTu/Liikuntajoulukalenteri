@@ -114,8 +114,9 @@ h1 {
 
 .kalenteri {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 40px;
+    row-gap: 100px;
     max-width: 1000px;
     margin: 50px auto;
     justify-items: center;
@@ -188,77 +189,43 @@ details[open] p {
     box-shadow: 0 0 20px rgba(255,255,255,0.8);
 }
 
-/* Mobiilinäkymä */
+/* Puhelimet ja tabletit */
 @media (max-width: 768px) {
-
-    body {
-        padding: 10px;
-    }
 
     h1 {
         font-size: 2rem;
     }
 
-    .ohje {
-        font-size: 1rem;
-        margin-bottom: 30px;
-    }
-
     .valintanappi {
         width: 90%;
         max-width: 300px;
-        font-size: 20px;
-        padding: 15px;
-        margin: 10px auto;
         display: block;
+        margin: 10px auto;
     }
 
     .kalenteri {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 10px;
+        row-gap: 30px;
+        max-width: 420px;
     }
 
     details {
-        width: 90px;
-        height: 90px;
-    }
-
-    details p {
-        width: 90px;
-        height: 90px;
-        font-size: 11px;
-        padding: 6px;
+        width: 75px;
+        height: 75px;
     }
 
     summary {
-        font-size: 26px;
-    }
-
-    #etusivu {
-        margin-top: 60px;
-    }
-}
-
-@media (max-width: 480px) {
-
-    .kalenteri {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
-
-    details {
-        width: 85px;
-        height: 85px;
+        font-size: 24px;
     }
 
     details p {
-        width: 85px;
-        height: 85px;
+        width: 75px;
+        height: 75px;
         font-size: 10px;
+        padding: 5px;
     }
 }
-
-</style>
 
 </style>
 </head>
